@@ -11,24 +11,14 @@
       "id": 1
     },
     {
-      "job_number": "",
+      "job_number": "999",
       "job_title": "",
-      "job_start_date": "2023-03-02",
-      "job_close_date": "2023-03-21",
-      "experience_required": false,
-      "number_of_openings": 0,
-      "job_notes": "",
-      "id": 7
-    },
-    {
-      "job_number": "",
-      "job_title": "",
-      "job_start_date": "2023-03-30",
+      "job_start_date": null,
       "job_close_date": null,
       "experience_required": false,
       "number_of_openings": 0,
       "job_notes": "",
-      "id": 9
+      "id": 2
     }
   ]
 }

@@ -1,5 +1,5 @@
-import { ErrorService } from './../../error/error.service';
-import { environment } from '../../../environment/environment';
+import { ErrorService } from '../error/error.service';
+import { environment } from '../../environment/environment';
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -68,10 +68,10 @@ export class JobFormComponent implements OnInit {
     this.formGroup = this.fb.group({
       jobNumber: [ "", Validators.required ],
       jobTitle: [ "", Validators.required ],
-      jobStartDate: null,
-      jobCloseDate: null,
+      jobStartDate: [ null, Validators.required ],
+      jobCloseDate: [ null, Validators.required ],
       experienceRequired: false,
-      numberOfOpenings: 0,
+      numberOfOpenings: [ null, Validators.required ],
       jobNotes: ""
     })
   }
@@ -87,6 +87,7 @@ export class JobFormComponent implements OnInit {
             this.router.navigate(["/jobs"]);
           },
           error: (err) => {
+            this.isLoading = false;
             this.errorService.showError(err.message);
           }
         })
@@ -98,6 +99,7 @@ export class JobFormComponent implements OnInit {
             this.router.navigate(["/jobs"]);
           },
           error: (err) => {
+            this.isLoading = false;
             this.errorService.showError(err.message);
           }
         })

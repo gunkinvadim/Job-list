@@ -41,6 +41,7 @@ export class JobsListComponent implements OnInit {
             resolve();
           },
           error: err => {
+            this.isLoading = false;
             this.errorService.showError(err.message);
             reject();
           }})

@@ -34,6 +34,7 @@ export class DeletePopupComponent {
           this.closePopup.emit();
         },
         error: (err) => {
+          this.isLoading = false;
           this.errorService.showError(err.message);
         }
       })

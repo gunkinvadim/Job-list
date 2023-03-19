@@ -13,6 +13,7 @@
       <label class="input-container">
         <span>Job number</span>
         <input type="text" class="form-control" placeholder="Job number"
+          [class.is-invalid]="formGroup.get('jobNumber')?.invalid"
           formControlName="jobNumber"
         />
       </label>
@@ -20,6 +21,7 @@
       <label class="input-container">
         <span>Job title</span>
         <input type="text" class="form-control" placeholder="Job title"
+          [class.is-invalid]="formGroup.get('jobTitle')?.invalid"
           formControlName="jobTitle"
         />
       </label>
@@ -27,6 +29,7 @@
       <label class="input-container">
         <span>Job start date</span>
         <input type="date" class="form-control" placeholder="Job start date"
+          [class.is-invalid]="formGroup.get('jobStartDate')?.invalid"
           formControlName="jobStartDate"
         />
       </label>
@@ -34,6 +37,7 @@
       <label class="input-container">
         <span>Job close date</span>
         <input type="date" class="form-control" placeholder="Job close date"
+          [class.is-invalid]="formGroup.get('jobCloseDate')?.invalid"
           formControlName="jobCloseDate"
         />
       </label>
@@ -48,6 +52,7 @@
       <label class="input-container">
         <span>Number of openings</span>
         <input type="number" class="form-control" placeholder="Number of openings"
+          [class.is-invalid]="formGroup.get('numberOfOpenings')?.invalid"
           formControlName="numberOfOpenings"
         />
       </label>
@@ -62,7 +67,7 @@
 
     <div class="buttons-container">
       <button type="submit" class="btn btn-success"
-        [disabled]="isLoading"
+        [disabled]="isLoading || formGroup.invalid"
       >Confirm</button>
       <button type="reset" class="btn btn-secondary"
         [disabled]="isLoading"
