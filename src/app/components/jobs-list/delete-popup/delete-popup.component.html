@@ -1,0 +1,16 @@
+<div class="overlay" (click)="closePopup.emit()">
+  <div class="delete-popup" (click)="$event.stopPropagation()">
+    <div>Are you sure to delete job № <b>{{jobItem.jobNumber}}</b>?</div>
+
+    <div class="buttons-container">
+      <button class="btn btn-danger"
+        (click)="deleteItem()"
+        [disabled]="isLoading"
+      >Confirm</button>
+      <button type="reset" class="btn btn-secondary"
+        (click)="closePopup.emit()"
+        [disabled]="isLoading"
+      >Cancel</button>
+    </div>
+  </div>
+</div>

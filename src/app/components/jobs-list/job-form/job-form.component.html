@@ -1,0 +1,72 @@
+<ng-container [ngSwitch]="mode">
+  <h1 *ngSwitchCase="'ADD'" class="page-title">Create new job</h1>
+  <h1 *ngSwitchCase="'EDIT'" class="page-title">Edit job</h1>
+</ng-container>
+
+<div class="form-container">
+  <p *ngIf="isLoading"><i>Loading...</i></p>
+  <form *ngIf="!isLoading" class="job-form" [formGroup]="formGroup"
+    (submit)="submitForm()"
+    (reset)="cancelForm()"
+  >
+    <div class="inputs-list">
+      <label class="input-container">
+        <span>Job number</span>
+        <input type="text" class="form-control" placeholder="Job number"
+          formControlName="jobNumber"
+        />
+      </label>
+
+      <label class="input-container">
+        <span>Job title</span>
+        <input type="text" class="form-control" placeholder="Job title"
+          formControlName="jobTitle"
+        />
+      </label>
+
+      <label class="input-container">
+        <span>Job start date</span>
+        <input type="date" class="form-control" placeholder="Job start date"
+          formControlName="jobStartDate"
+        />
+      </label>
+
+      <label class="input-container">
+        <span>Job close date</span>
+        <input type="date" class="form-control" placeholder="Job close date"
+          formControlName="jobCloseDate"
+        />
+      </label>
+
+      <label class="form-check-label checkbox-container">
+        <input class="form-check-input" type="checkbox"
+          formControlName="experienceRequired"
+        >
+        <span>Experience required</span>
+      </label>
+
+      <label class="input-container">
+        <span>Number of openings</span>
+        <input type="number" class="form-control" placeholder="Number of openings"
+          formControlName="numberOfOpenings"
+        />
+      </label>
+
+      <label class="input-container">
+        <span>Job notes</span>
+        <textarea class="form-control" placeholder="Job notes"
+          formControlName="jobNotes"
+        ></textarea>
+      </label>
+    </div>
+
+    <div class="buttons-container">
+      <button type="submit" class="btn btn-success"
+        [disabled]="isLoading"
+      >Confirm</button>
+      <button type="reset" class="btn btn-secondary"
+        [disabled]="isLoading"
+      >Cancel</button>
+    </div>
+  </form>
+</div>

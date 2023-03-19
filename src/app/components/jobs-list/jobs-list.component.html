@@ -1,0 +1,34 @@
+<h1 class="page-title">Jobs list</h1>
+
+<button type="button" class="btn btn-primary new-job-btn"
+  [routerLink]="'/jobs/new'"
+>Create job</button>
+
+<div class="jobs-list-container">
+  <p *ngIf="isLoading"><i>Loading...</i></p>
+
+  <ul *ngIf="!isLoading" class="jobs-list">
+    <li *ngFor="let item of jobsList" class="job-item"
+      (click)="onItemClick(item)"
+    >
+      <button class="btn btn-danger delete-btn"
+        (click)="deleteItem($event, item)"
+      >Delete</button>
+
+      <p><b>Job number:</b> {{item.jobNumber}}</p>
+      <p><b>Job title:</b> {{item.jobTitle}}</p>
+      <p><b>Job start date:</b> {{item.jobStartDate}}</p>
+      <p><b>Job close date:</b> {{item.jobCloseDate}}</p>
+      <p><b>Experience required:</b> {{item.experienceRequired}}</p>
+      <p><b>Number of openings:</b> {{item.numberOfOpenings}}</p>
+      <p><b>Job notes:</b> {{item.jobNotes}}</p>
+    </li>
+  </ul>
+</div>
+
+<app-delete-popup
+  *ngIf="deletingItem"
+  [jobItem]="deletingItem"
+  (getJobItems)="getJobItems()"
+  (closePopup)="deletingItem = null"
+></app-delete-popup>

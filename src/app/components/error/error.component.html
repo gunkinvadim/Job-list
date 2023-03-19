@@ -1,0 +1,10 @@
+<div class="error-popup" #errorPopup
+  (click)="$event.stopPropagation()"
+>
+  <button class="close-btn"
+    (click)="errorService.closeError()"
+  >&times;</button>
+
+  <div class="error-title">Ошибка при выполнении запроса!</div>
+  <div class="error-message">{{errorService.errorMessage}}</div>
+</div>

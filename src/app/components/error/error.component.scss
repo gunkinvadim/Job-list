@@ -1,0 +1,46 @@
+.error-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  max-width: 600px;
+  border: 1px solid #dc3545;
+  border-radius: 10px;
+  background: #fcfcfc;
+  padding: 10px;
+
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 30px;
+    color: rgba(#000000, 0.7);
+
+    &:hover {
+      color: #000000
+    }
+  }
+
+  .error-title {
+    // border-bottom: 2px solid rgba(#000000, 0.7);
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #dc3545;
+  }
+
+  .error-message {
+    margin-top: 10px;
+  }
+}
